@@ -16,7 +16,7 @@ public class DatabaseConnection {
     private static final String DEFAULT_PORT = "3306";
     private static final String DEFAULT_DATABASE = "dark_kitchen";
     private static final String DEFAULT_USERNAME = "root";
-    private static final String DEFAULT_PASSWORD = "Erick1234"; 
+    private static final String DEFAULT_PASSWORD = "Em1liano"; 
     
     // Configuración actual
     private String host;
