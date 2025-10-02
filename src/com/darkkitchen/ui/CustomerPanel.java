@@ -40,11 +40,11 @@ public class CustomerPanel extends JPanel {
         activeCheckBox = new JCheckBox("Activo", true);
         
         // Botones
-        addButton = new JButton("➕ Agregar");
-        updateButton = new JButton("✏️ Actualizar");
-        deleteButton = new JButton("🗑️ Eliminar");
-        clearButton = new JButton("🧹 Limpiar");
-        searchButton = new JButton("🔍 Buscar");
+        addButton = new JButton("Agregar");
+        updateButton = new JButton("Actualizar");
+        deleteButton = new JButton("Eliminar");
+        clearButton = new JButton("Limpiar");
+        searchButton = new JButton("Buscar");
         
         // Configurar botones
         updateButton.setEnabled(false);
@@ -80,14 +80,14 @@ public class CustomerPanel extends JPanel {
         
         // Panel superior - Búsqueda
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        searchPanel.setBorder(BorderFactory.createTitledBorder("🔍 Buscar Cliente"));
+        searchPanel.setBorder(BorderFactory.createTitledBorder("Buscar Cliente"));
         searchPanel.add(new JLabel("Nombre:"));
         searchPanel.add(searchField);
         searchPanel.add(searchButton);
         
         // Panel central - Tabla
         JScrollPane scrollPane = new JScrollPane(customerTable);
-        scrollPane.setBorder(BorderFactory.createTitledBorder("📋 Lista de Clientes"));
+        scrollPane.setBorder(BorderFactory.createTitledBorder("Lista de Clientes"));
         
         // Panel inferior - Formulario
         JPanel formPanel = createFormPanel();
@@ -100,7 +100,7 @@ public class CustomerPanel extends JPanel {
     
     private JPanel createFormPanel() {
         JPanel formPanel = new JPanel(new GridBagLayout());
-        formPanel.setBorder(BorderFactory.createTitledBorder("📝 Datos del Cliente"));
+        formPanel.setBorder(BorderFactory.createTitledBorder("Datos del Cliente"));
         
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -198,12 +198,12 @@ public class CustomerPanel extends JPanel {
             customer.setActive(activeCheckBox.isSelected());
             
             if (customerDAO.create(customer)) {
-                JOptionPane.showMessageDialog(this, "✅ Cliente agregado exitosamente", 
+                JOptionPane.showMessageDialog(this, "Cliente agregado exitosamente", 
                     "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 refreshData();
                 clearForm();
             } else {
-                JOptionPane.showMessageDialog(this, "❌ Error al agregar cliente", 
+                JOptionPane.showMessageDialog(this, "Error al agregar cliente", 
                     "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -218,12 +218,12 @@ public class CustomerPanel extends JPanel {
             selectedCustomer.setActive(activeCheckBox.isSelected());
             
             if (customerDAO.update(selectedCustomer)) {
-                JOptionPane.showMessageDialog(this, "✅ Cliente actualizado exitosamente", 
+                JOptionPane.showMessageDialog(this, "Cliente actualizado exitosamente", 
                     "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 refreshData();
                 clearForm();
             } else {
-                JOptionPane.showMessageDialog(this, "❌ Error al actualizar cliente", 
+                JOptionPane.showMessageDialog(this, "Error al actualizar cliente", 
                     "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -239,12 +239,12 @@ public class CustomerPanel extends JPanel {
             
             if (option == JOptionPane.YES_OPTION) {
                 if (customerDAO.delete(selectedCustomer.getCustomerId())) {
-                    JOptionPane.showMessageDialog(this, "✅ Cliente eliminado exitosamente", 
+                    JOptionPane.showMessageDialog(this, "Cliente eliminado exitosamente", 
                         "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     refreshData();
                     clearForm();
                 } else {
-                    JOptionPane.showMessageDialog(this, "❌ Error al eliminar cliente", 
+                    JOptionPane.showMessageDialog(this, "Error al eliminar cliente", 
                         "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }

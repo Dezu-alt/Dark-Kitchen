@@ -32,11 +32,11 @@ public class MainFrame extends JFrame {
         tabbedPane = new JTabbedPane();
         customerPanel = new CustomerPanel();
         dishPanel = new DishPanel();
-        statusLabel = new JLabel("🔌 Verificando conexión...");
+        statusLabel = new JLabel("Verificando conexión...");
         
         // Agregar pestañas
-        tabbedPane.addTab("👥 Clientes", customerPanel);
-        tabbedPane.addTab("🍽️ Platillos", dishPanel);
+        tabbedPane.addTab("Clientes", customerPanel);
+        tabbedPane.addTab("Platillos", dishPanel);
         
         // Configurar ícono de pestaña con mejor estilo
         tabbedPane.setTabPlacement(JTabbedPane.TOP);
@@ -44,7 +44,7 @@ public class MainFrame extends JFrame {
     }
     
     private void setupFrame() {
-        setTitle("🥘 Dark Kitchen - Sistema de Gestión");
+        setTitle("Dark Kitchen - Sistema de Gestión");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setSize(1000, 700);
         setLocationRelativeTo(null);
@@ -63,21 +63,21 @@ public class MainFrame extends JFrame {
         });
         
         // Configuración básica
-        System.out.println("🎨 Configurando interfaz gráfica...");
+        System.out.println("Configurando interfaz gráfica...");
     }
     
     private void setupMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         
         // Menú Archivo
-        JMenu fileMenu = new JMenu("📁 Archivo");
+        JMenu fileMenu = new JMenu("Archivo");
         fileMenu.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         
-        JMenuItem refreshItem = new JMenuItem("🔄 Actualizar Datos");
+        JMenuItem refreshItem = new JMenuItem("Actualizar Datos");
         refreshItem.setAccelerator(KeyStroke.getKeyStroke("F5"));
         refreshItem.addActionListener(e -> refreshAllData());
         
-        JMenuItem exitItem = new JMenuItem("🚪 Salir");
+        JMenuItem exitItem = new JMenuItem("Salir");
         exitItem.setAccelerator(KeyStroke.getKeyStroke("ctrl Q"));
         exitItem.addActionListener(e -> exitApplication());
         
@@ -86,7 +86,7 @@ public class MainFrame extends JFrame {
         fileMenu.add(exitItem);
         
         // Menú Base de Datos
-        JMenu dbMenu = new JMenu("🗄️ Base de Datos");
+        JMenu dbMenu = new JMenu("Base de Datos");
         dbMenu.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         
         JMenuItem testConnectionItem = new JMenuItem("🔌 Probar Conexión");
@@ -95,10 +95,10 @@ public class MainFrame extends JFrame {
         dbMenu.add(testConnectionItem);
         
         // Menú Ayuda
-        JMenu helpMenu = new JMenu("❓ Ayuda");
+        JMenu helpMenu = new JMenu("Ayuda");
         helpMenu.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         
-        JMenuItem aboutItem = new JMenuItem("ℹ️ Acerca de");
+        JMenuItem aboutItem = new JMenuItem("ℹAcerca de");
         aboutItem.addActionListener(e -> showAboutDialog());
         
         helpMenu.add(aboutItem);
@@ -141,15 +141,15 @@ public class MainFrame extends JFrame {
                 try {
                     boolean connected = get();
                     if (connected) {
-                        statusLabel.setText("✅ Conectado a la base de datos");
+                        statusLabel.setText("Conectado a la base de datos");
                         statusLabel.setForeground(new Color(0, 128, 0));
                     } else {
-                        statusLabel.setText("❌ Error de conexión a la base de datos");
+                        statusLabel.setText("Error de conexión a la base de datos");
                         statusLabel.setForeground(Color.RED);
                         showConnectionErrorDialog();
                     }
                 } catch (Exception e) {
-                    statusLabel.setText("❌ Error de conexión: " + e.getMessage());
+                    statusLabel.setText("Error de conexión: " + e.getMessage());
                     statusLabel.setForeground(Color.RED);
                     showConnectionErrorDialog();
                 }
@@ -185,14 +185,14 @@ public class MainFrame extends JFrame {
         });
         
         // Limpiar el mensaje después de 3 segundos
-        Timer timer = new Timer(3000, e -> statusLabel.setText("✅ Listo"));
+        Timer timer = new Timer(3000, e -> statusLabel.setText(" Listo"));
         timer.setRepeats(false);
         timer.start();
     }
     
     private void showAboutDialog() {
         String message = """
-            🥘 Dark Kitchen - Sistema de Gestión
+            Dark Kitchen - Sistema de Gestión
             
             Versión: 1.0
             Desarrollado para: Universidad TecMilenio

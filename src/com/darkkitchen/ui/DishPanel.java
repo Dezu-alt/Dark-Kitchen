@@ -53,12 +53,12 @@ public class DishPanel extends JPanel {
         spicyCheckBox = new JCheckBox("Picante", false);
         
         // Botones
-        addButton = new JButton("➕ Agregar");
-        updateButton = new JButton("✏️ Actualizar");
-        deleteButton = new JButton("🗑️ Eliminar");
-        clearButton = new JButton("🧹 Limpiar");
-        searchButton = new JButton("🔍 Buscar");
-        manageCategoriesButton = new JButton("📂 Gestionar Categorías");
+        addButton = new JButton("Agregar");
+        updateButton = new JButton("Actualizar");
+        deleteButton = new JButton("Eliminar");
+        clearButton = new JButton("Limpiar");
+        searchButton = new JButton(" Buscar");
+        manageCategoriesButton = new JButton("Gestionar Categorías");
         
         // Configurar botones
         updateButton.setEnabled(false);
@@ -99,7 +99,7 @@ public class DishPanel extends JPanel {
         JPanel topPanel = new JPanel(new BorderLayout());
         
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        searchPanel.setBorder(BorderFactory.createTitledBorder("🔍 Buscar Platillo"));
+        searchPanel.setBorder(BorderFactory.createTitledBorder("Buscar Platillo"));
         searchPanel.add(new JLabel("Nombre:"));
         searchPanel.add(searchField);
         searchPanel.add(searchButton);
@@ -112,7 +112,7 @@ public class DishPanel extends JPanel {
         
         // Panel central - Tabla
         JScrollPane scrollPane = new JScrollPane(dishTable);
-        scrollPane.setBorder(BorderFactory.createTitledBorder("🍽️ Lista de Platillos"));
+        scrollPane.setBorder(BorderFactory.createTitledBorder("Lista de Platillos"));
         
         // Panel inferior - Formulario
         JPanel formPanel = createFormPanel();
@@ -125,7 +125,7 @@ public class DishPanel extends JPanel {
     
     private JPanel createFormPanel() {
         JPanel formPanel = new JPanel(new GridBagLayout());
-        formPanel.setBorder(BorderFactory.createTitledBorder("📝 Datos del Platillo"));
+        formPanel.setBorder(BorderFactory.createTitledBorder("Datos del Platillo"));
         
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -257,12 +257,12 @@ public class DishPanel extends JPanel {
             dish.setAvailable(availableCheckBox.isSelected());
             
             if (dishDAO.create(dish)) {
-                JOptionPane.showMessageDialog(this, "✅ Platillo agregado exitosamente", 
+                JOptionPane.showMessageDialog(this, "Platillo agregado exitosamente", 
                     "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 refreshData();
                 clearForm();
             } else {
-                JOptionPane.showMessageDialog(this, "❌ Error al agregar platillo", 
+                JOptionPane.showMessageDialog(this, "Error al agregar platillo", 
                     "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -282,12 +282,12 @@ public class DishPanel extends JPanel {
             selectedDish.setSpicy(spicyCheckBox.isSelected());
             
             if (dishDAO.update(selectedDish)) {
-                JOptionPane.showMessageDialog(this, "✅ Platillo actualizado exitosamente", 
+                JOptionPane.showMessageDialog(this, "Platillo actualizado exitosamente", 
                     "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 refreshData();
                 clearForm();
             } else {
-                JOptionPane.showMessageDialog(this, "❌ Error al actualizar platillo", 
+                JOptionPane.showMessageDialog(this, "Error al actualizar platillo", 
                     "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -303,12 +303,12 @@ public class DishPanel extends JPanel {
             
             if (option == JOptionPane.YES_OPTION) {
                 if (dishDAO.delete(selectedDish.getDishId())) {
-                    JOptionPane.showMessageDialog(this, "✅ Platillo marcado como no disponible", 
+                    JOptionPane.showMessageDialog(this, "Platillo marcado como no disponible", 
                         "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     refreshData();
                     clearForm();
                 } else {
-                    JOptionPane.showMessageDialog(this, "❌ Error al eliminar platillo", 
+                    JOptionPane.showMessageDialog(this, "Error al eliminar platillo", 
                         "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -506,12 +506,12 @@ public class DishPanel extends JPanel {
                 );
                 
                 if (categoryDAO.create(category)) {
-                    JOptionPane.showMessageDialog(this, "✅ Categoría agregada exitosamente");
+                    JOptionPane.showMessageDialog(this, "Categoría agregada exitosamente");
                     refreshCategoryList();
                     categoryNameField.setText("");
                     categoryDescField.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(this, "❌ Error al agregar categoría");
+                    JOptionPane.showMessageDialog(this, "Error al agregar categoría");
                 }
             }
         }

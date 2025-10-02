@@ -386,7 +386,7 @@ INSERT INTO Payment (order_id, method, amount, reference, transaction_id, status
 (7, 'DIGITAL_WALLET', 246.20, 'REF78901234', 'WALLET901234567', 'COMPLETED');
 
 -- =====================================================
--- SECCIÓN DE CONSULTAS SQL AVANZADAS (CRITERIO 1 - 15 PTS)
+-- SECCIÓN DE CONSULTAS SQL AVANZADAS 
 -- =====================================================
 -- Esta sección demuestra operaciones SQL avanzadas incluyendo
 -- JOIN, UNION, ORDER BY, GROUP BY para análisis integral de datos
@@ -516,7 +516,7 @@ HAVING porcentaje_ganancia > 60
 ORDER BY porcentaje_ganancia DESC;
 
 -- =====================================================
--- SECCIÓN DE PROCEDIMIENTOS ALMACENADOS (CRITERIO 2-4 - 30 PTS)
+-- SECCIÓN DE PROCEDIMIENTOS ALMACENADOS 
 -- =====================================================
 -- Esta sección incluye procedimientos almacenados con parámetros,
 -- manejo de excepciones y automatización de lógica de negocio
@@ -708,7 +708,7 @@ END //
 DELIMITER ;
 
 -- =====================================================
--- FUNCTIONS SECTION (CRITERION 2-4 - 30 PTS)
+-- FUNCTIONS SECTION 
 -- =====================================================
 -- This section includes custom functions with exception handling
 
@@ -797,7 +797,7 @@ END //
 DELIMITER ;
 
 -- =====================================================
--- TRIGGERS SECTION (CRITERION 5-6 - 20 PTS)
+-- TRIGGERS SECTION 
 -- =====================================================
 -- This section implements triggers for data integrity and automation
 
@@ -905,64 +905,3 @@ FROM Dish
 WHERE active = 1
 LIMIT 5;
 
--- =====================================================
--- SECCIÓN DE DOCUMENTACIÓN Y EVIDENCIA (CRITERIO 8 - 20 PTS)
--- =====================================================
-/*
-DOCUMENTACIÓN DEL DISEÑO DE BASE DE DATOS
-========================================
-
-1. DISEÑO CONCEPTUAL:
-   - La base de datos Dark Kitchen representa un sistema de entrega de restaurante virtual
-   - Soporta múltiples marcas operando desde ubicaciones de cocina compartidas
-   - Gestiona pedidos de varias plataformas de entrega
-   - Rastrea ingredientes, recetas y costos de comida
-   - Maneja gestión de clientes y seguimiento de lealtad
-   - Administra repartidores y sus métricas de rendimiento
-
-2. DISEÑO LÓGICO (CUMPLIMIENTO 3FN):
-   - Todas las tablas están normalizadas a la Tercera Forma Normal (3FN)
-   - No existen dependencias transitivas
-   - Cada atributo no clave depende únicamente de la clave primaria
-   - Las tablas de unión manejan relaciones muchos-a-muchos apropiadamente
-   - Las relaciones de clave foránea mantienen integridad referencial
-
-3. DISEÑO FÍSICO:
-   - Tipos de datos apropiados elegidos para almacenamiento y rendimiento óptimo
-   - Índices en claves primarias y foráneas para optimización de consultas
-   - Tipos ENUM utilizados para vocabularios controlados
-   - Restricciones y valores por defecto apropiados implementados
-
-4. CARACTERÍSTICAS SQL AVANZADAS IMPLEMENTADAS:
-   - JOINs complejos a través de múltiples tablas
-   - GROUP BY con cláusulas HAVING para agregación de datos
-   - Operaciones UNION para combinar conjuntos de resultados
-   - Subconsultas para análisis avanzado de datos
-   - ORDER BY para ordenamiento de resultados
-
-5. PROCEDIMIENTOS ALMACENADOS:
-   - ProcesarNuevoPedido: Maneja creación completa de pedidos con validación
-   - ActualizarEstadoPedido: Gestiona ciclo de vida de pedidos con reglas de negocio
-   - Ambos incluyen manejo integral de errores y gestión de transacciones
-
-6. FUNCIONES:
-   - ObtenerNivelLealtadCliente: Calcula nivel de cliente basado en historial de pedidos
-   - CalcularRentabilidadPlatillo: Determina márgenes de ganancia para artículos del menú
-   - Ambas incluyen manejo de excepciones y retornan valores apropiados
-
-7. TRIGGERS:
-   - tr_order_item_after_insert: Actualiza automáticamente totales de pedidos
-   - tr_order_status_after_update: Gestiona transiciones de estado y actualizaciones
-   - Mantienen consistencia de datos e implementan reglas de negocio automáticamente
-
-8. SEGURIDAD E INTEGRIDAD:
-   - Restricciones de clave foránea aseguran integridad referencial
-   - Restricciones CHECK validan rangos de datos
-   - Valores por defecto previenen problemas de nulos
-   - Tipos de datos apropiados previenen entrada de datos inválidos
-
-Esta estructura de base de datos soporta una operación completa de cocina virtual con
-gestión integral de pedidos, seguimiento de costos y análisis de rendimiento.
-*/
-
--- FIN DEL SCRIPT DE BASE DE DATOS DARK KITCHEN
